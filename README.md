@@ -12,15 +12,15 @@ How to use
 
 1. Make sure you have pdnsd and openresolv installed.
 
-   On Arch Linux that would be `# pacman -S pdnsd openresolv`
+   On Arch Linux that would be `# pacman -S pdnsd openresolv` (# = sudo).
 
-2. Modify `pdnsd.conf` according to your own network and ISP.
+2. Modify `pdnsd.conf` according to your own network and ISP. For example,
 
-   For example, if you don't have IPv6, you can delete the `run_ipv4` line.
+   * If you don't have IPv6, you can delete (or comment out) the `run_ipv4=off;` line.
 
-   If you prefer IPv6 over IPv4, you can delete the IPv4 `ip` lines.
+   * If you prefer IPv6 over IPv4, you can delete all the IPv4 `ip` lines.
 
-   Finally, if your ISP pollutes NXDOMAIN results, you can fill in the `reject` line in `local` block.
+   * Finally, if your ISP pollutes NXDOMAIN results, you can fill in the `reject` line in `local` block. Refer to [dnsmasq-china-list/bogus-nxdomain.china.conf](https://github.com/felixonmars/dnsmasq-china-list/blob/master/bogus-nxdomain.china.conf) for information about some Chinese ISPs.
 
 3. Put `pdnsd.conf` and `resolvconf.conf` into `/etc/`.
 
